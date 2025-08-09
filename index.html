@@ -2,92 +2,439 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Business | Data & AI Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>AMHARS — 1-Page Websites, Chatbots & AI Agents</title>
+  <meta name="description" content="Get a clean, mobile-friendly 1-page website with contact form in 5–7 days. Starting at $349 CAD. Plus chatbots, voice agents, and data dashboards." />
+  <link rel="canonical" href="https://amhars.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AMHARS — 1-Page Websites for Small Businesses" />
+  <meta property="og:description" content="Launch a professional 1-page website with contact form in 5–7 days. From $349 CAD." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://amhars.com/" />
+  <meta property="og:image" content="https://amhars.com/assets/images/web_development.gif" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AMHARS — 1-Page Websites, Chatbots & AI Agents" />
+  <meta name="twitter:description" content="Launch a professional 1-page website in 5–7 days. From $349 CAD." />
+  <meta name="twitter:image" content="https://amhars.com/assets/images/web_development.gif" />
+
+  <!-- Favicon (drop your icon at /assets/favicon.ico) -->
+  <link rel="icon" href="/assets/favicon.ico" />
+
+  <link rel="preload" href="assets/images/bg3.gif" as="image" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    .sticky-shadow{box-shadow:0 2px 10px rgba(0,0,0,.08)}
+    section[id]{scroll-margin-top:90px;} /* anchors below sticky header */
+    .caret::after{content:"▾"; margin-left:.35rem; display:inline-block; transform:translateY(-1px);}
+  </style>
+
+  <!-- Organization schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"AMHARS",
+    "url":"https://amhars.com/",
+    "sameAs":[],
+    "logo":"https://amhars.com/assets/images/web_development.gif"
+  }
+  </script>
+
+  <!-- GA4 (replace G-XXXXXXX with your Measurement ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX'); // ← replace with your GA4 ID
+  </script>
 </head>
 <body class="bg-white text-gray-900 font-sans">
 
-    <!-- Hero Section -->
-<section class="relative h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('assets/images/bg3.gif');">
-  <div class="bg-black bg-opacity-60 w-full h-full absolute top-0 left-0 z-0"></div>
-  <div class="z-10 p-6">
-    <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Elevate Your Business with Data & AI</h1>
-    <p class="text-lg md:text-xl text-white">Analytics, Web, Bots, and Voice Agents – All in One Place</p>
-    <a href="#services" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition">Explore Services</a>
-  </div>
-</section>
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white sticky-shadow">
+    <nav class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+      <a href="#" class="font-extrabold text-xl" data-cta="nav_logo">AMHARS</a>
 
-<!-- Services Overview -->
-<section id="services" class="py-16 px-6 md:px-20 bg-gray-50">
-  <h2 class="text-3xl font-bold text-center mb-16">Our Services</h2>
+      <!-- desktop -->
+      <div class="space-x-6 hidden md:flex">
+        <a href="#services" class="text-gray-700 hover:text-gray-900" data-cta="nav_services">Services</a>
+        <a href="#pricing" class="text-gray-700 hover:text-gray-900" data-cta="nav_pricing">Pricing</a>
+        <a href="#contact" class="text-gray-700 hover:text-gray-900" data-cta="nav_contact">Contact</a>
+      </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-    <!-- Data Analytics -->
-    <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md hover:shadow-lg transition p-6">
-      <img src="assets/images/datavis.gif" alt="Data Analytics" class="w-40 h-40 object-contain mb-4 md:mb-0">
-      <div class="md:ml-6 text-center md:text-left">
-        <h3 class="text-2xl font-semibold mb-2">Data Analytics & Visualization</h3>
-        <p class="text-gray-600 mb-4 text-sm md:text-base">Uncover insights with dashboards and data storytelling to make smarter decisions.</p>
-        <a href="#contact" class="inline-block px-5 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium">Book a Discovery Call</a>
+      <div class="hidden md:block">
+        <a href="#contact" class="ml-4 inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg" data-cta="nav_book">
+          Book a Free Call
+        </a>
+      </div>
+
+      <!-- mobile trigger -->
+      <button id="menuBtn" class="md:hidden inline-flex items-center px-3 py-2 border rounded text-gray-700 border-gray-300" aria-label="Open menu">
+        ☰
+      </button>
+    </nav>
+
+    <!-- mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t">
+      <div class="px-6 py-3 space-y-3">
+        <a href="#services" class="block" data-cta="mobile_services">Services</a>
+        <a href="#pricing" class="block" data-cta="mobile_pricing">Pricing</a>
+        <a href="#contact" class="block" data-cta="mobile_contact">Contact</a>
+        <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg" data-cta="mobile_book">Book a Free Call</a>
       </div>
     </div>
+  </header>
 
-    <!-- Website Development -->
-    <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md hover:shadow-lg transition p-6">
-      <img src="assets/images/web_development.gif" alt="Website Development" class="w-40 h-40 object-contain mb-4 md:mb-0">
-      <div class="md:ml-6 text-center md:text-left">
-        <h3 class="text-2xl font-semibold mb-2">Website Development</h3>
-        <p class="text-gray-600 mb-4 text-sm md:text-base">Responsive, modern websites that align with your brand and drive results.</p>
-        <a href="#contact" class="inline-block px-5 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium">Let's Build It</a>
+  <!-- HERO -->
+  <section class="relative h-screen flex items-center justify-center text-center bg-cover bg-center"
+           style="background-image:url('assets/images/bg3.gif'); background-color:#0b1220;">
+    <div class="bg-black bg-opacity-60 w-full h-full absolute top-0 left-0 z-0"></div>
+    <div class="z-10 p-6">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Elevate Your Business with Data &amp; AI</h1>
+      <p class="text-lg md:text-xl text-white">
+        1-Page Websites, Chatbots, AI &amp; Voice Agents — All in One Place
+      </p>
+
+      <div class="mt-6 space-x-3">
+        <a href="#pricing" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition" data-cta="hero_view_pricing">
+          Get a 1-Page Site from $349
+        </a>
+        <a href="https://calendar.app.google/Y7MBQvkNhiSYZXEv9?utm_source=hero&utm_medium=button&utm_campaign=booking"
+           target="_blank" rel="noopener"
+           class="inline-block bg-white text-gray-900 font-semibold px-6 py-3 rounded-lg hover:bg-gray-200 transition" data-cta="hero_book">
+          Book on Google Calendar
+        </a>
+        <a href="https://wa.me/12262003277?text=Hi%20Aakash%2C%20I%20want%20a%201-page%20website&utm_source=hero&utm_medium=button"
+           class="inline-block bg-white text-gray-900 font-semibold px-6 py-3 rounded-lg hover:bg-gray-200 transition" data-cta="hero_whatsapp">
+          Chat on WhatsApp
+        </a>
       </div>
     </div>
-
-    <!-- Chatbots -->
-    <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md hover:shadow-lg transition p-6">
-      <img src="assets/images/chat_bot.gif" alt="Chatbots" class="w-40 h-40 object-contain mb-4 md:mb-0">
-      <div class="md:ml-6 text-center md:text-left">
-        <h3 class="text-2xl font-semibold mb-2">Chatbots</h3>
-        <p class="text-gray-600 mb-4 text-sm md:text-base">24/7 chat assistants for websites and messaging platforms to boost support and sales.</p>
-        <a href="#contact" class="inline-block px-5 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium">Start a Chatbot</a>
-      </div>
-    </div>
-
-    <!-- AI Agents -->
-    <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md hover:shadow-lg transition p-6">
-      <img src="assets/images/ai_ag.webp" alt="AI Agents" class="w-40 h-40 object-contain mb-4 md:mb-0">
-      <div class="md:ml-6 text-center md:text-left">
-        <h3 class="text-2xl font-semibold mb-2">AI Agents</h3>
-        <p class="text-gray-600 mb-4 text-sm md:text-base">Custom-built AI agents to automate tasks, workflows, and customer interactions.</p>
-        <a href="#contact" class="inline-block px-5 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium">Get a Demo</a>
-      </div>
-    </div>
-
-    <!-- Voice Agents -->
-    <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md hover:shadow-lg transition p-6 md:col-span-2 max-w-3xl mx-auto">
-      <img src="assets/images/ai_voice5.gif" alt="Voice Agents" class="w-40 h-40 object-contain mb-4 md:mb-0">
-      <div class="md:ml-6 text-center md:text-left">
-        <h3 class="text-2xl font-semibold mb-2">Voice Agents</h3>
-        <p class="text-gray-600 mb-4 text-sm md:text-base">Natural-sounding voice bots to handle phone calls, bookings, and support queries.</p>
-        <a href="#contact" class="inline-block px-5 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium">Try It Live</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-  <!-- CTA Section -->
-  <section class="bg-blue-600 text-white py-16 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-4">Let’s Build Something Smart</h2>
-    <p class="mb-6 text-lg">Book a free strategy call and see what we can automate, optimize, and launch for you.</p>
-    <a href="#contact" class="inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-200 transition">Schedule a Call</a>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white text-center py-6">
-    <p>&copy; 2025 Your Business Name. All rights reserved.</p>
+  <!-- SERVICES -->
+  <section id="services" class="py-16 px-6 md:px-20 bg-gray-50">
+    <h2 class="text-3xl font-bold text-center mb-16">Our Services</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+      <!-- Data Analytics -->
+      <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md hover:shadow-lg transition p-6">
+        <img loading="lazy" src="assets/images/datavis.gif" alt="Data analytics dashboards and visualization"
+             class="w-40 h-40 object-contain mb-4 md:mb-0">
+        <div class="md:ml-6 text-center md:text-left">
+          <h3 class="text-2xl font-semibold mb-2">Data Analytics &amp; Visualization</h3>
+          <p class="text-gray-600 mb-4 text-sm md:text-base">Uncover insights with dashboards and data storytelling to make smarter decisions.</p>
+          <a href="#contact" class="inline-block px-5 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium" data-cta="svc_data_contact">Book a Discovery Call</a>
+        </div>
+      </div>
+
+      <!-- Website Development -->
+      <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md hover:shadow-lg transition p-6">
+        <img loading="lazy" src="assets/images/web_development.gif" alt="Website development service"
+             class="w-40 h-40 object-contain mb-4 md:mb-0">
+        <div class="md:ml-6 text-center md:text-left">
+          <h3 class="text-2xl font-semibold mb-2">Website Development</h3>
+          <p class="text-gray-600 mb-4 text-sm md:text-base">Responsive, modern websites aligned with your brand and built to convert.</p>
+          <a href="#pricing" class="inline-block px-5 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium" data-cta="svc_web_pricing">See Pricing</a>
+        </div>
+      </div>
+
+      <!-- Chatbots -->
+      <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md hover:shadow-lg transition p-6">
+        <img loading="lazy" src="assets/images/chat_bot.gif" alt="AI chatbots"
+             class="w-40 h-40 object-contain mb-4 md:mb-0">
+        <div class="md:ml-6 text-center md:text-left">
+          <h3 class="text-2xl font-semibold mb-2">Chatbots</h3>
+          <p class="text-gray-600 mb-4 text-sm md:text-base">24/7 chat assistants for websites and messaging platforms.</p>
+          <a href="#contact" class="inline-block px-5 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium" data-cta="svc_chat_contact">Start a Chatbot</a>
+        </div>
+      </div>
+
+      <!-- AI Agents -->
+      <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md hover:shadow-lg transition p-6">
+        <img loading="lazy" src="assets/images/ai_ag.webp" alt="Custom AI agents"
+             class="w-40 h-40 object-contain mb-4 md:mb-0">
+        <div class="md:ml-6 text-center md:text-left">
+          <h3 class="text-2xl font-semibold mb-2">AI Agents</h3>
+          <p class="text-gray-600 mb-4 text-sm md:text-base">Automate workflows and customer interactions with custom AI agents.</p>
+          <a href="#contact" class="inline-block px-5 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium" data-cta="svc_ai_contact">Get a Demo</a>
+        </div>
+      </div>
+
+      <!-- Voice Agents -->
+      <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md hover:shadow-lg transition p-6 md:col-span-2 max-w-3xl mx-auto">
+        <img loading="lazy" src="assets/images/ai_voice5.gif" alt="AI voice agents"
+             class="w-40 h-40 object-contain mb-4 md:mb-0">
+        <div class="md:ml-6 text-center md:text-left">
+          <h3 class="text-2xl font-semibold mb-2">Voice Agents</h3>
+          <p class="text-gray-600 mb-4 text-sm md:text-base">Natural-sounding voice bots to handle calls, bookings, and support.</p>
+          <a href="#contact" class="inline-block px-5 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium" data-cta="svc_voice_contact">Try It Live</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING — 1-Page Website -->
+  <section id="pricing" class="py-16 px-6 md:px-20">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Pricing — 1-Page Website</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="border rounded-2xl p-6 shadow-sm">
+          <h3 class="text-xl font-bold mb-2">Basic</h3>
+          <p class="text-4xl font-extrabold mb-4">$349 <span class="text-base font-normal">CAD</span></p>
+          <ul class="space-y-2 text-sm text-gray-700 mb-6">
+            <li>• One-page scrolling site</li>
+            <li>• About, Services, Contact</li>
+            <li>• Contact form to your email</li>
+            <li>• Mobile-friendly</li>
+            <li>• Free hosting setup</li>
+          </ul>
+          <a href="#contact" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg" data-cta="pricing_basic_contact">Get Started</a>
+        </div>
+
+        <div class="border rounded-2xl p-6 shadow-lg ring-2 ring-blue-600">
+          <div class="text-xs inline-block bg-blue-100 text-blue-700 px-2 py-1 rounded mb-2">Most Popular</div>
+          <h3 class="text-xl font-bold mb-2">Plus</h3>
+          <p class="text-4xl font-extrabold mb-4">$449 <span class="text-base font-normal">CAD</span></p>
+          <ul class="space-y-2 text-sm text-gray-700 mb-6">
+            <li>• Everything in Basic</li>
+            <li>• Booking form OR gallery</li>
+            <li>• WhatsApp click-to-chat</li>
+            <li>• 1 round of revisions</li>
+          </ul>
+          <a href="#contact" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg" data-cta="pricing_plus_contact">Choose Plus</a>
+        </div>
+
+        <div class="border rounded-2xl p-6 shadow-sm">
+          <h3 class="text-xl font-bold mb-2">Premium</h3>
+          <p class="text-4xl font-extrabold mb-4">$599 <span class="text-base font-normal">CAD</span></p>
+          <ul class="space-y-2 text-sm text-gray-700 mb-6">
+            <li>• Everything in Plus</li>
+            <li>• Extra section or blog</li>
+            <li>• Basic on-page SEO</li>
+            <li>• 2 rounds of revisions</li>
+          </ul>
+          <a href="#contact" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg" data-cta="pricing_premium_contact">Go Premium</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING — Other Services -->
+  <section id="pricing-services" class="py-16 px-6 md:px-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Pricing — Other Services</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Chatbots -->
+        <div class="border rounded-2xl p-6 bg-white shadow-sm">
+          <h3 class="text-xl font-bold mb-1">Chatbots</h3>
+          <p class="text-sm text-gray-600 mb-4">24/7 assistants for sites &amp; messaging apps.</p>
+          <p class="text-3xl font-extrabold mb-2">$199<span class="text-base font-normal"> setup</span></p>
+          <p class="text-gray-700 mb-4">+ $49/mo maintenance</p>
+          <ul class="space-y-2 text-sm text-gray-700 mb-6">
+            <li>• FAQ + lead capture</li>
+            <li>• Embed on website</li>
+            <li>• Basic CRM handoff (email)</li>
+          </ul>
+          <a href="#contact" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg" data-cta="pricing_chatbots_contact">Start a Chatbot</a>
+        </div>
+
+        <!-- AI Agents -->
+        <div class="border rounded-2xl p-6 bg-white shadow-sm">
+          <h3 class="text-xl font-bold mb-1">AI Agents</h3>
+          <p class="text-sm text-gray-600 mb-4">Workflow automation &amp; smart replies.</p>
+          <p class="text-3xl font-extrabold mb-2">$499<span class="text-base font-normal"> setup</span></p>
+          <p class="text-gray-700 mb-4">$99–$299/mo maintenance</p>
+          <ul class="space-y-2 text-sm text-gray-700 mb-6">
+            <li>• Custom intents &amp; actions</li>
+            <li>• Integrations (email/Sheets)</li>
+            <li>• Weekly improvement tweaks</li>
+          </ul>
+          <a href="#contact" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg" data-cta="pricing_agents_contact">Get a Demo</a>
+        </div>
+
+        <!-- Voice Agents -->
+        <div class="border rounded-2xl p-6 bg-white shadow-sm">
+          <h3 class="text-xl font-bold mb-1">Voice Agents</h3>
+          <p class="text-sm text-gray-600 mb-4">Phone bots for bookings &amp; support.</p>
+          <p class="text-3xl font-extrabold mb-2">$599<span class="text-base font-normal"> setup</span></p>
+          <p class="text-gray-700 mb-4">$49–$199/mo + usage*</p>
+          <ul class="space-y-2 text-sm text-gray-700 mb-6">
+            <li>• Natural speech</li>
+            <li>• Booking &amp; reminders</li>
+            <li>• Call summaries to email</li>
+          </ul>
+          <a href="#contact" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg" data-cta="pricing_voice_contact">Try It Live</a>
+        </div>
+
+        <!-- Data Analytics -->
+        <div class="border rounded-2xl p-6 bg-white shadow-sm">
+          <h3 class="text-xl font-bold mb-1">Data Dashboards</h3>
+          <p class="text-sm text-gray-600 mb-4">KPIs &amp; reports for smarter decisions.</p>
+          <p class="text-3xl font-extrabold mb-2">$299–$799</p>
+          <p class="text-gray-700 mb-4">+ optional $99/mo support</p>
+          <ul class="space-y-2 text-sm text-gray-700 mb-6">
+            <li>• 1–3 core KPIs</li>
+            <li>• Google Sheets / CSV</li>
+            <li>• Shareable web link</li>
+          </ul>
+          <a href="#contact" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg" data-cta="pricing_dashboards_contact">Book a Call</a>
+        </div>
+
+        <!-- Website Add-Ons -->
+        <div class="border rounded-2xl p-6 bg-white shadow-sm">
+          <h3 class="text-xl font-bold mb-1">Website Add-Ons</h3>
+          <p class="text-sm text-gray-600 mb-4">Upgrade your one-pager.</p>
+          <ul class="space-y-2 text-sm text-gray-700 mb-6">
+            <li>• Extra section or blog — <strong>$99</strong></li>
+            <li>• Gallery / portfolio — <strong>$99</strong></li>
+            <li>• Booking embed (Calendly) — <strong>$49</strong></li>
+            <li>• WhatsApp chat button — <strong>$29</strong></li>
+            <li>• Basic SEO setup — <strong>$79</strong></li>
+          </ul>
+          <a href="#contact" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg" data-cta="pricing_addons_contact">Customize My Site</a>
+        </div>
+      </div>
+
+      <p class="text-xs text-gray-500 mt-6">
+        *Usage fees (e.g., Twilio call minutes / LLM API) billed at cost with monthly invoice. All prices in CAD. Final scope confirmed after a quick discovery call.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="bg-blue-600 text-white py-12 px-6 text-center">
+    <h2 class="text-2xl md:text-3xl font-bold mb-3">Launch Your Site in 5–7 Days</h2>
+    <p class="mb-6 text-base md:text-lg">Book a free strategy call and see what we can build for you.</p>
+    <a href="#contact" class="inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-200 transition" data-cta="cta_strip_contact">Schedule a Call</a>
+  </section>
+
+  <!-- CONTACT / LEAD CAPTURE -->
+  <section id="contact" class="py-16 px-6 md:px-20 bg-gray-50">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-6">Request a Free Discovery Call</h2>
+      <p class="text-center text-gray-600 mb-8">
+        Prefer to book directly?
+        <a class="text-blue-600 underline" href="https://calendar.app.google/Y7MBQvkNhiSYZXEv9?utm_source=contact&utm_medium=link&utm_campaign=booking" target="_blank" rel="noopener" data-cta="contact_book_link">Pick a time on Google Calendar</a>.
+        Or WhatsApp me at
+        <a class="text-blue-600 underline" href="https://wa.me/12262003277?text=Hi%20Aakash%2C%20I%20want%20a%201-page%20website&utm_source=contact&utm_medium=link" data-cta="contact_whatsapp_link">this link</a>.
+      </p>
+
+      <!-- Booking buttons -->
+      <div class="flex flex-col sm:flex-row gap-3 mb-6">
+        <a href="https://calendar.app.google/Y7MBQvkNhiSYZXEv9?utm_source=contact&utm_medium=button&utm_campaign=booking" target="_blank" rel="noopener"
+           class="flex-1 text-center bg-white border border-gray-300 hover:bg-gray-50 text-gray-900 font-semibold px-6 py-3 rounded-lg" data-cta="contact_book_btn">
+           Book on Google Calendar
+        </a>
+        <a href="https://wa.me/12262003277?text=Hi%20Aakash%2C%20I%20want%20a%201-page%20website&utm_source=contact&utm_medium=button"
+           class="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold px-6 py-3 rounded-lg" data-cta="contact_whatsapp_btn">
+           Chat on WhatsApp
+        </a>
+      </div>
+
+      <!-- Optional embedded booking (may be blocked by Google) -->
+      <div class="bg-white rounded-2xl shadow p-4 mb-10">
+        <h3 class="text-lg font-semibold mb-3">Quick Booking (Inline)</h3>
+        <iframe
+          src="https://calendar.app.google/Y7MBQvkNhiSYZXEv9"
+          loading="lazy"
+          width="100%" height="900" frameborder="0"
+          referrerpolicy="no-referrer-when-downgrade"
+          sandbox="allow-forms allow-scripts allow-same-origin allow-popups">
+        </iframe>
+        <p class="text-sm text-gray-500 mt-2">
+          If the booking widget doesn’t load, <a class="text-blue-600 underline" href="https://calendar.app.google/Y7MBQvkNhiSYZXEv9?utm_source=contact&utm_medium=fallback" target="_blank" rel="noopener" data-cta="contact_book_fallback">open it here</a>.
+        </p>
+      </div>
+
+      <!-- Embedded Google Form -->
+      <div class="mt-8">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd5LM6SKZSHHuMrXpPoQ2sF0lggDkcWBohYFbk83n2GqN3kbw/viewform?embedded=true"
+                loading="lazy"
+                width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
+
+      <!-- FAQ -->
+      <div class="mt-10 max-w-3xl mx-auto">
+        <h3 class="text-xl font-bold mb-4">FAQ</h3>
+        <details class="mb-3 bg-white rounded-xl p-4 shadow-sm">
+          <summary class="font-medium caret">How long does a 1-page site take?</summary>
+          <p class="mt-2 text-gray-700">Typically 5–7 days from kickoff, assuming content (logo, text, images) is ready.</p>
+        </details>
+        <details class="mb-3 bg-white rounded-xl p-4 shadow-sm">
+          <summary class="font-medium caret">What do you need from me?</summary>
+          <p class="mt-2 text-gray-700">Your logo/brand colors (if any), business info, and 3–5 photos. I’ll handle layout and setup.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOBILE STICKY CTA BAR -->
+  <div class="fixed bottom-0 inset-x-0 md:hidden bg-white border-t z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex gap-3">
+      <a href="https://calendar.app.google/Y7MBQvkNhiSYZXEv9?utm_source=mobilebar&utm_medium=button&utm_campaign=booking" target="_blank" rel="noopener"
+         class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-3 rounded-lg" data-cta="mobilebar_book">
+         Book
+      </a>
+      <a href="https://wa.me/12262003277?text=Hi%20Aakash%2C%20I%20want%20a%201-page%20website&utm_source=mobilebar&utm_medium=button"
+         class="flex-1 text-center bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold px-4 py-3 rounded-lg" data-cta="mobilebar_whatsapp">
+         WhatsApp
+      </a>
+    </div>
+  </div>
+  <!-- spacer so bar doesn't cover content on mobile -->
+  <div class="h-20 md:h-0"></div>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white text-center py-8">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="mb-2">&copy; 2025 <strong>AMHARS</strong>. All rights reserved.</p>
+      <p class="text-sm text-gray-300">
+        <a class="underline" href="#pricing" data-cta="footer_pricing">Pricing</a> •
+        <a class="underline" href="#contact" data-cta="footer_contact">Contact</a> •
+        <a class="underline" href="mailto:aakash@amharanalytics.com" data-cta="footer_email">Email</a> •
+        <a class="underline" href="tel:+12262003277" data-cta="footer_call">Call</a>
+      </p>
+    </div>
   </footer>
+
+  <!-- tiny JS: mobile menu + GA events + section view tracking -->
+  <script>
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn && btn.addEventListener('click', ()=> menu.classList.toggle('hidden'));
+    menu && menu.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> menu.classList.add('hidden')));
+
+    // Track clicks on all elements with data-cta
+    function trackClick(e){
+      const label = e.currentTarget.getAttribute('data-cta') || 'unknown_cta';
+      if (window.gtag) gtag('event', 'cta_click', { event_category: 'engagement', event_label: label });
+    }
+    document.querySelectorAll('[data-cta]').forEach(el => el.addEventListener('click', trackClick));
+
+    // Track when contact section becomes visible (lead intent)
+    const contact = document.getElementById('contact');
+    if ('IntersectionObserver' in window && contact){
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            if (window.gtag) gtag('event', 'view_contact_section', { event_category: 'engagement' });
+            io.disconnect();
+          }
+        });
+      }, {threshold: 0.4});
+      io.observe(contact);
+    }
+  </script>
+
 </body>
 </html>
